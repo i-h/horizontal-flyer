@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for(int i = 0; i < SpawnWaves.Length; i++)
         {            
-            if (Time.time > SpawnWaves[i].When && !SpawnWaves[i].Spawned)
+            if (Time.timeSinceLevelLoad > SpawnWaves[i].When && !SpawnWaves[i].Spawned)
             {
                 DoSpawnWave(ref SpawnWaves[i]);
             }
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < RecurringWaves.Length; i++)
         {
             SpawnWaveRecurring w = RecurringWaves[i];
-            if(Time.time > w.FirstWaveAt && Time.time - w.LastSpawn > w.WaveInterval)
+            if(Time.timeSinceLevelLoad > w.FirstWaveAt && Time.timeSinceLevelLoad - w.LastSpawn > w.WaveInterval)
             {
                 DoRecurringWave(ref RecurringWaves[i]);
             }
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
     void DoRecurringWave(ref SpawnWaveRecurring wave)
     {
-        wave.LastSpawn = Time.time;
+        wave.LastSpawn = Time.timeSinceLevelLoad;
         int count = wave.EnemyCount;
         if (wave.AllowRandomizedCount)
         {

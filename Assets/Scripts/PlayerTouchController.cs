@@ -23,6 +23,7 @@ public class PlayerTouchController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         if (Input.GetMouseButton(0))
         {
             // Since MoveTowards() takes a Vector2, the z value is discarded and we don't have to worry about that

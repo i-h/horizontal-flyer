@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        _spawnTime = Time.time;
+        _spawnTime = Time.timeSinceLevelLoad;
         _mover = GetComponent<ObjectMover>();
         _rb = GetComponent<Rigidbody2D>();
     }

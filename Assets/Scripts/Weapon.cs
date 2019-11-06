@@ -19,10 +19,10 @@ public class Weapon : IWeapon
 
     void Update()
     {
-        if (AutoFire && Time.time - _lastFire > FireDelay)
+        if (AutoFire && Time.timeSinceLevelLoad - _lastFire > FireDelay)
         {
             Fire();
-            _lastFire = Time.time;
+            _lastFire = Time.timeSinceLevelLoad;
         }
     }
 
