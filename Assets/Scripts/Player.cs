@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit");
+        if(collision.collider.tag == "EnemyBullet")
+        {
+            GameSession.Instance.TakePlayerHit(20);
+        }
     }
 }

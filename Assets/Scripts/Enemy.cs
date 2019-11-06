@@ -17,19 +17,22 @@ public class Enemy : MonoBehaviour
     float _startTime;
     int _score;
 
+    float _movementSyncBreak;
+
     private void Awake()
     {
         _mover = GetComponent<ObjectMover>();
         _t = GetComponent<Transform>();
 
-        _startTime = Time.time;
+        _startTime = Time.timeSinceLevelLoad;
         _score = Health;
+        _movementSyncBreak = Random.Range(0.9f, 1.2f);
     }
 
     private void FixedUpdate()
     {
         // Might get heavy with a lot of enemies
-        float patternRotation = MovementPattern.Evaluate((Time.time - _startTime)/MovementPatternDuration)*MovementPatternStrength;
+        float patternRotation = MovementPattern.Evaluate((Time.timeSinceLevelLoad - _startTime)/MovementPatternDuration*_movementSyncBreak)*MovementPatternStrength;
         _mover.MoveForward();
         _mover.SetRotation(patternRotation);
     }
@@ -52,7 +55,6 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log(name + " dies!");
         GetComponent<Collider2D>().enabled = false;
         GameSession.Instance.GainScore(_score);
         StartCoroutine(FadeOut());
@@ -66,14 +68,15 @@ public class Enemy : MonoBehaviour
     IEnumerator FadeOut()
     {
         float duration = 2.0f; // Hardcoding this duration in here in lack of coherent animation system
-        float startTime = Time.time;
+        float startTime = Time.timeSinceLevelLoad;
         Renderer r = GetComponentInChildren<Renderer>();
         Color invis = r.material.color;
         invis.a = 0;
+        r.material.color = Color.white;
 
         while (r.material.color.a > 0 )
         {
-            r.material.color = Color.Lerp(r.material.color, invis, (Time.time - startTime)/duration);
+            r.material.color = Color.Lerp(r.material.color, invis, (Time.timeSinceLevelLoad - startTime)/duration);
             yield return new WaitForEndOfFrame();
         }
 

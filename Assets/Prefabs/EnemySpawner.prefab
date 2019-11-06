@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6601773305795224767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6601773305795224704}
+  - component: {fileID: 6601773305795224705}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6601773305795224704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601773305795224767}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 17.5, y: 0.23971434, z: -0.2109375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &6601773305795224705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601773305795224767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80993d8ff7163054e80efe67234cf2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyTypePrefabs:
+  - {fileID: 1400682089, guid: 7588a921d7ec15d4b8aad1e61b8cd815, type: 3}
+  - {fileID: 6785083035897578403, guid: 77027a97c1357174bba29c0e76bd4ff7, type: 3}
+  - {fileID: 1400682089, guid: 3c7cd050a68839846b7746cf3ecb1e09, type: 3}
+  SpawnWaves:
+  - EnemyTypeIndex: 0
+    EnemyCount: 25
+    When: 15
+    Spawned: 0
+  - EnemyTypeIndex: 1
+    EnemyCount: 5
+    When: 30
+    Spawned: 0
+  - EnemyTypeIndex: 2
+    EnemyCount: 6
+    When: 60
+    Spawned: 0
+  RecurringWaves:
+  - EnemyTypeIndex: 0
+    EnemyCount: 4
+    AllowRandomizedCount: 0
+    FirstWaveAt: 0
+    WaveInterval: 2
+    LastSpawn: 0
+  - EnemyTypeIndex: 0
+    EnemyCount: 10
+    AllowRandomizedCount: 0
+    FirstWaveAt: 3
+    WaveInterval: 5
+    LastSpawn: 0
+  - EnemyTypeIndex: 1
+    EnemyCount: 2
+    AllowRandomizedCount: 0
+    FirstWaveAt: 8
+    WaveInterval: 10
+    LastSpawn: 0
+  - EnemyTypeIndex: 2
+    EnemyCount: 1
+    AllowRandomizedCount: 0
+    FirstWaveAt: 35
+    WaveInterval: 9
+    LastSpawn: 0

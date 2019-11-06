@@ -12,5 +12,6 @@ public class EnemyTerminator : MonoBehaviour
             if (enemy != null) enemy.OutOfBounds();
             GameSession.Instance.TakePlayerHit();
         }
+
     }
 }

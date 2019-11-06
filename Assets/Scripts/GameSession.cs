@@ -34,10 +34,13 @@ public class GameSession : MonoBehaviour
         _playerLives = MaxLives;
         _playerScore = 0;
     }
-
     public void TakePlayerHit()
     {
-        _playerLives -= 1;
+        TakePlayerHit(1);
+    }
+    public void TakePlayerHit(int amount)
+    {
+        _playerLives -= amount;
         if (_playerLives <= 0) GameOver();
     }
 
