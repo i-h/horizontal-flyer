@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     Transform _t;
 
     float _startTime;
+    int _score;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
         _t = GetComponent<Transform>();
 
         _startTime = Time.time;
+        _score = Health;
     }
 
     private void FixedUpdate()
@@ -48,11 +50,17 @@ public class Enemy : MonoBehaviour
         if (Health <= 0) Die();
     }
 
-    void Die()
+    public void Die()
     {
         Debug.Log(name + " dies!");
         GetComponent<Collider2D>().enabled = false;
+        GameSession.Instance.GainScore(_score);
         StartCoroutine(FadeOut());
+    }
+
+    public void OutOfBounds()
+    {
+        Destroy(gameObject);
     }
 
     IEnumerator FadeOut()

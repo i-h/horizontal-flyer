@@ -37,4 +37,9 @@ public class WeaponSlot : MonoBehaviour
             ActiveWeapon.ActivateWeapon();
         }
     }
+
+    public void Fire()
+    {
+        if(ActiveWeapon != null) ActiveWeapon.Fire();
+    }
 }
