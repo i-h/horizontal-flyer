@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponSlot : MonoBehaviour
 {
-    public Weapon DefaultWeaponPrefab;
-    public Weapon ActiveWeapon;
+    public IWeapon DefaultWeaponPrefab;
+    public IWeapon ActiveWeapon;
     Transform _t;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class WeaponSlot : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon(Weapon weaponPrefab)
+    public void ChangeWeapon(IWeapon weaponPrefab)
     {
         if(ActiveWeapon != null)
         {
@@ -33,7 +33,7 @@ public class WeaponSlot : MonoBehaviour
 
         if (weaponPrefab != null)
         {
-            ActiveWeapon = Instantiate<Weapon>(weaponPrefab, _t.position, _t.rotation, _t);
+            ActiveWeapon = Instantiate<IWeapon>(weaponPrefab, _t.position, _t.rotation, _t);
             ActiveWeapon.ActivateWeapon();
         }
     }

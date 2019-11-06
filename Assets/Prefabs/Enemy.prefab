@@ -85,6 +85,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 2
+  MovementPattern:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MovementPatternStrength: 2
+  MovementPatternDuration: 1
 --- !u!114 &1400682090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed47958fe80ee944dacb91ab672fb8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  MoveSpeed: 3
 --- !u!1 &9004325178293137756
 GameObject:
   m_ObjectHideFlags: 0

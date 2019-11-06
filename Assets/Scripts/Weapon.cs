@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : IWeapon
 {
     public Projectile BulletPrefab;
     public bool AutoFire = true;
@@ -26,13 +26,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void ActivateWeapon()
+    public override void ActivateWeapon()
     {
         // TODO: For activation effects and setup
         Debug.Log("Weapon " + name + " activated!");
     }
 
-    public void Fire()
+    public override void Fire()
     {
         if(BulletPrefab == null)
         {
@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         Projectile bulletInstance = Instantiate<Projectile>(BulletPrefab, _t.position, _t.rotation);
     }
 
-    public void DeactivateWeapon()
+    public override void DeactivateWeapon()
     {
         // TODO: For deactivation effects and stowing procedure
         Debug.Log("Weapon " + name + " deactivated.");

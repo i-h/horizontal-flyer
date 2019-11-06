@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IWeapon : MonoBehaviour
+public abstract class IWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void Fire();
+    public abstract void ActivateWeapon();
+    public abstract void DeactivateWeapon();
 }
