@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
         if(collision.collider.tag == "EnemyBullet")
         {
             GameSession.Instance.TakePlayerHit(20);
+            Destroy(collision.gameObject);
         }
     }
 }
