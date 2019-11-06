@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMover : MonoBehaviour
+public class ObjectMover : MonoBehaviour
 {
     public float MoveSpeed = 10.0f;      // Units per second
     Transform _t;
@@ -15,7 +15,14 @@ public class CharacterMover : MonoBehaviour
         // Since we're not using physics or rigidbodies, we can just use Transform's Translate()
         _t.Translate(dir);
     }
-
+    public void MoveForward()
+    {
+        MoveForwards(MoveSpeed);
+    }
+    public void MoveForwards(float speed)
+    {
+        Move(_t.right * speed * Time.deltaTime);
+    }
     public void MoveTowards(Vector2 pos)
     {
         MoveTowards(pos, MoveSpeed * Time.deltaTime);

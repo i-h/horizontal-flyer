@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterMover))]
+[RequireComponent(typeof(ObjectMover))]
 public class PlayerTouchController : MonoBehaviour
 {
-    CharacterMover _mover;
+    ObjectMover _mover;
     Transform _t;
     private void Awake()
     {
-        _mover = GetComponent<CharacterMover>();
+        _mover = GetComponent<ObjectMover>();
         _t = GetComponent<Transform>();
     }
 
