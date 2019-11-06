@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4780521912249710021}
   - component: {fileID: 4780521912249710022}
   - component: {fileID: 4780521912249710023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,9 @@ GameObject:
   - component: {fileID: 4780521912621497380}
   - component: {fileID: 4780521912621497382}
   - component: {fileID: 4780521912621497383}
-  m_Layer: 0
+  - component: {fileID: 1778177509}
+  - component: {fileID: 1778177504}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -163,6 +165,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde7e2ca5ce14134f96aa2a44296fd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1778177509
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780521912621497370}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1778177504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780521912621497370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2cb8e6233582b4994c85aa1248371f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8008070267122914001
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +207,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7950896360823904200}
-  m_Layer: 0
+  - component: {fileID: 1941824094}
+  m_Layer: 9
   m_Name: WeaponSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,9 +223,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008070267122914001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.86, y: -0.33, z: 0}
+  m_LocalPosition: {x: -1.893, y: -0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4780521912621497381}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941824094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008070267122914001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f5f963f3708ca4f81074fc5836ade8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultWeaponPrefab: {fileID: 6363145728461691884, guid: d301e56a024748548bdd56a4f0873091,
+    type: 3}
+  ActiveWeapon: {fileID: 0}

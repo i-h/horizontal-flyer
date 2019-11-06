@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class Weapon : MonoBehaviour
     {
         _t = GetComponent<Transform>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (AutoFire && Time.time - _lastFire > FireDelay)
@@ -23,6 +24,12 @@ public class Weapon : MonoBehaviour
             Fire();
             _lastFire = Time.time;
         }
+    }
+
+    public void ActivateWeapon()
+    {
+        // TODO: For activation effects and setup
+        Debug.Log("Weapon " + name + " activated!");
     }
 
     public void Fire()
@@ -35,5 +42,11 @@ public class Weapon : MonoBehaviour
 
         // TODO: Could do pooling here, but in this prototype it's not necessary
         Projectile bulletInstance = Instantiate<Projectile>(BulletPrefab, _t.position, _t.rotation);
+    }
+
+    public void DeactivateWeapon()
+    {
+        // TODO: For deactivation effects and stowing procedure
+        Debug.Log("Weapon " + name + " deactivated.");
     }
 }

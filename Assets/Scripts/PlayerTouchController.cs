@@ -13,7 +13,7 @@ public class PlayerTouchController : MonoBehaviour
         _t = GetComponent<Transform>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
         { 

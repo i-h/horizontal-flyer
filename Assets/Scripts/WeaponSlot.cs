@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class WeaponSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Weapon DefaultWeaponPrefab;
+    public Weapon ActiveWeapon;
+    Transform _t;
+
+    private void Awake()
     {
-        
+        _t = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        if (DefaultWeaponPrefab == null)
+        {
+            Debug.LogWarning("Default weapon for " + name + " was not set!");
+        } else
+        {
+            ChangeWeapon(DefaultWeaponPrefab);
+        }
+    }
+
+    public void ChangeWeapon(Weapon weaponPrefab)
+    {
+        if(ActiveWeapon != null)
+        {
+            ActiveWeapon.DeactivateWeapon();
+        }
+
+        if (weaponPrefab != null)
+        {
+            ActiveWeapon = Instantiate<Weapon>(weaponPrefab, _t.position, _t.rotation, _t);
+            ActiveWeapon.ActivateWeapon();
+        }
     }
 }
